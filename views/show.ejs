@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <header>
+    <h1>Express Dogs</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dogs">Dogs Index</a></li>
+        <li><a href="/dogs/new">Create a new Dog</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Show Page for <%=dog.name%></h2>
+      <ul>
+        <li>Name: <%= dog.name %></li>
+        <li>Rating: <%= dog.avgRating %></li>
+        <li>Description: <%= dog.description %> </li>
+      </ul>
+      <% if (dog.image_url != undefined) { %> 
+        <img src=<%=dog['image_url']%> alt='dog'>
+        <% }  else { }%>
+
+    </section>
+
+    <section>
+      <a href="/dogs/<%=dog.id%>/edit">Edit</a>
+    </section>
+
+    <section>
+      <form action="/dogs/<%=dog.id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete Dog</button>
+      </form>
+    </section>
+
+    <!-- Add this to have rankings (for virtual)-->
+    <br>
+    <section>
+      <form action="/dogs/<%=dog.id%>?_method=PUT" method="POST">
+        <label for="ratings">Rating</label>
+        <select name="ratings" id="ratings">
+          <option value="" disabled selected>Please select ...</option>
+          <% for (let i=5; i>0; i--) { %>
+          <option value=<%= i %>><%= i %></option>
+          <% } %>
+        </select>
+        <button type="submit">Rate Dog</button>
+      </form>
+    </section>
+    <!-- End of add -->
+
+  </main>
+</body>
+</html>
+
