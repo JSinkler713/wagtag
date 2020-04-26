@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>WagTag| <%= dog.name %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
   <header>
     <h1>Express Dogs</h1>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
         <li><a href="/dogs">Dogs Index</a></li>
         <li><a href="/dogs/new">Create a new Dog</a></li>
       </ul>
@@ -22,10 +22,13 @@
         <li>Rating: <%= dog.avgRating %></li>
         <li>Description: <%= dog.description %> </li>
       </ul>
-      <% if (dog.image_url != undefined) { %> 
-        <img src=<%=dog['image_url']%> alt='dog'>
+    <div class='container'>
+      <div class="card" style="width: 18rem;">
+        <% if (dog.image_url != undefined) { %> 
+          <img class="card-img-top" src=<%=dog['image_url']%> alt='dog'>
         <% }  else { }%>
-
+      </div>
+    </div>
     </section>
 
     <section>
