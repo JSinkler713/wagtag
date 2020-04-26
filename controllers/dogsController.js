@@ -20,8 +20,15 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/create', multipartMiddleware, (req, res)=> {
+  let body = (req.body);
   cloudinary.uploader.upload(req.files.image.path, function(result) {
-    console.log(result);
+    body = {
+      ...body, 
+      image_url: result.secure_url
+    }
+    // prep body for mongo
+    console.log(body);
+
     res.render('new', {
     image: result.secure_url,
     })
