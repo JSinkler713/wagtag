@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <!-- Head partial -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
+</head>
+<body class="container">
+
+<header>
+    <!-- Header partial -->
+<div class="ui secondary pointing menu">
+    <a class="item" href="/">
+        Home
+    </a>
+    <a class="item" href="/new">
+        New Post
+    </a>
+    <a class="item">
+        About Scotchgram
+    </a>
+</div>
+
+
+</header>
+
+<main>
+    <div class="ui grid container">
+        <div class="ui two column centered grid">
+            <div class="column">
+                <!-- Enctype is multipart to support file upload -->
+                <form action="/create" method="post" enctype="multipart/form-data" class="ui form">
+                    <div class="field">
+                        <label>Title</label>
+                        <input name="title" type="text" placeholder="Title" />
+                    </div>
+                    <div class="field">
+                        <label>Description</label>
+                        <textarea rows="4" name="description" placeholder="Description"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Image</label>
+                        <input name="image" type="file" />
+                    </div>
+                    <button class="ui primary button" type="submit">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="ui two column centered grid">
+<img class='image' src="<%= typeof image != 'undefined' ? image : '' %>" >
+</div>
+
+<!-- Scripts partial -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+</body>
+</html>
