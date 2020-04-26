@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WagTag | Browse Tails</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+  <header class='nav' style='text-align:center; margin-bottom:20px; background-color: #BF8360; color:#f1f1f1;'>
+    <h1>WagTag</h1>
+    <nav>
+      <ul style='display:none'>
+        <li><a href="/dogs/new">Create a new Dog</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+  <div class="album py-5 bg-dark">
+    <div class="container">
+      <div class="row">
+
+    
+      <% for (let i = 0; i < dogs.length; i++){%>
+        <div class="col-md-4">
+          <div class="card mb-4 text-center shadow-m" style='background-color:#97A660;'>
+            <img style="width: 200px;" src=<%=dogs[i]['image_url']%> alt='dog'> 
+            <div class="card-body">
+              <p><%= dogs[i].description %></p>
+            <a href="/dogs/<%=dogs[i]._id%>">View <%= dogs[i].name %></a>
+            </div>
+          </div>
+        </div>
+      <%}%>
+    </div>
+  </div>
+    
+
+  </main>
+</body>
+</html>
+
