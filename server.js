@@ -2,13 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-// I will try to use multer for this same functionality
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
-
-
-// multer
-
 
 var picsController = require('./controllers/picsController');
 var app = express();
