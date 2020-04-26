@@ -14,8 +14,16 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-router.get('/', (req, res)=> {
-  res.render('index');
+router.get('/', async (req, res)=> {
+  try {
+    const dogs = await db.Dog.find()
+    res.render('index', {
+      dogs
+    })
+  }
+  catch {
+    res.send(err)
+  }
 })
 
 router.get('/new', (req, res) => {
