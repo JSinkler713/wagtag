@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express')
 const router = express.Router();
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 const cloudinary = require('cloudinary');
 
 cloudinary.config({
@@ -17,7 +19,7 @@ router.get('/new', (req, res) => {
   res.render('new');
 })
 
-router.post('/create', (req, res)=> {
+router.post('/create', multipartMiddleware, (req, res)=> {
   cloudinary.uploader.upload(req.files.image.path, function(result) {
     console.log(result);
     res.render('new', {
