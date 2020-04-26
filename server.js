@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 // multiparter works like multer to read the filestream
-
+var methodOverride = require('method-override')
 var dogsController = require('./controllers/dogsController');
 var app = express();
 
@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(methodOverride('_method'));
 
 //routes    
 
