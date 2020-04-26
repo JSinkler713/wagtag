@@ -2,10 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 // multiparter works like multer to read the filestream
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
 
-var picsController = require('./controllers/picsController');
+var dogsController = require('./controllers/dogsController');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -24,15 +22,13 @@ app.use(bodyParser.urlencoded({
 
 //app.get('/', controller.index);
 
-app.use('/dogs', picsController);  
-app.get('/new', picsController);
-app.post('/create', multipartMiddleware, picsController);
+app.use('/dogs', dogsController);  
 
 // TODO
-//app.get('/edit/:id', picsController);
-//app.post('/update', picsController);
-//app.post('/destroy', picsController);
-//app.get('/account/:id', picsController);
+//app.get('/edit/:id', dogsController);
+//app.post('/update', dogsController);
+//app.post('/destroy', dogsController);
+//app.get('/account/:id', dogsController);
 
 var port = app.get('port');
 app.listen(port, function () {
