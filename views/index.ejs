@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>WagTag | Browse Tails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel='stylesheet' href='/css/main.css'>
 </head>
@@ -21,15 +22,18 @@
 
     
       <% for (let i = 0; i < dogs.length; i++){%>
+            <a href="/dogs/<%=dogs[i]._id%>">
         <div class="col-md-4">
-          <div class="card mb-4 text-center shadow-m" style='background-color:#97A660;'>
+          <div class="card mb-4 rounded text-center shadow-sm" style='background-color:#97A660;'>
             <img style="width: 200px;" src=<%=dogs[i]['image_url']%> alt='dog'> 
             <div class="card-body">
-              <p><%= dogs[i].description %></p>
-            <a href="/dogs/<%=dogs[i]._id%>">View <%= dogs[i].name %></a>
+              <h3>
+              <%= dogs[i].name %>
+            </h3>  
             </div>
           </div>
         </div>
+            </a>
       <%}%>
     </div>
   </div>
