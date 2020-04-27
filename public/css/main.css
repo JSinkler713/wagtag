@@ -1,8 +1,30 @@
 body {
   background-color: #F2DA5E;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 
 h1 {
   font-size: 4rem;
   color: #F2DA5E;
+  text-shadow: 1px 2px 5px black;
 }
+
+h3 {
+  color: #F2DA5E;
+  text-shadow:1px 2px 2px black;
+}
+
+img {
+  padding-top: 20px;
+}
+.card {
+  border-radius: 15px;
+  box-shadow: 1px 6px 2px;
+  transition: .2s linear;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  font-size: scale(1.15);
+}
+
